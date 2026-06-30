@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Heart Disease Prediction Dashboard</title>
+  <link rel="stylesheet" href="styles.css?v=2">
+</head>
+<body>
+  <div class="background-glow glow-one"></div>
+  <div class="background-glow glow-two"></div>
+
+  <header class="site-header">
+    <div>
+      <p class="eyebrow">AI-powered</p>
+      <h1>Heart Disease Prediction</h1>
+    </div>
+    <button id="theme-toggle" aria-pressed="false">Dark Mode</button>
+  </header>
+
+  <main class="content">
+    <section class="hero card">
+      <div>
+        <p class="eyebrow">Patient risk overview</p>
+        <h2>Track major cardiovascular indicators with confidence.</h2>
+        <p>Explore blood pressure, cholesterol, diabetes status, glucose trends, and more in a modern, responsive dashboard.</p>
+      </div>
+      <div class="hero-badge">
+        <span>Risk Level</span>
+        <strong>Moderate</strong>
+      </div>
+    </section>
+
+    <section class="metrics-grid">
+      <article class="card metric-card">
+        <div class="icon">🩺</div>
+        <h3>Blood Pressure</h3>
+        <p class="metric-value">120/80</p>
+        <p class="metric-caption">Healthy range for most adults</p>
+      </article>
+
+      <article class="card metric-card">
+        <div class="icon">🧪</div>
+        <h3>Cholesterol</h3>
+        <p class="metric-value">180 mg/dL</p>
+        <p class="metric-caption">Monitor LDL and HDL balance</p>
+      </article>
+
+      <article class="card metric-card">
+        <div class="icon">🩸</div>
+        <h3>Glucose</h3>
+        <p class="metric-value">95 mg/dL</p>
+        <p class="metric-caption">Stable fasting glucose</p>
+      </article>
+
+      <article class="card metric-card">
+        <div class="icon">💊</div>
+        <h3>Diabetes</h3>
+        <p class="metric-value">No</p>
+        <p class="metric-caption">Low diabetes risk indicator</p>
+      </article>
+    </section>
+
+    <section class="panel-grid">
+      <article class="card">
+        <h3>Quick risk assessment</h3>
+        <form id="risk-form" class="risk-form">
+          <label>
+            Age
+            <input id="age" type="number" min="18" max="100" value="55" required>
+          </label>
+
+          <label>
+            Systolic blood pressure
+            <input id="bloodPressure" type="number" min="80" max="220" value="135" required>
+          </label>
+
+          <label>
+            Cholesterol (mg/dL)
+            <input id="cholesterol" type="number" min="120" max="400" value="210" required>
+          </label>
+
+          <label>
+            Diabetes
+            <select id="diabetes">
+              <option value="no">No</option>
+              <option value="yes">Yes</option>
+            </select>
+          </label>
+
+          <label>
+            Smoking
+            <select id="smoking">
+              <option value="no">No</option>
+              <option value="yes">Yes</option>
+            </select>
+          </label>
+
+          <button type="submit">Calculate Risk</button>
+        </form>
+      </article>
+
+      <article class="card result-card">
+        <div class="result-head">
+          <p class="eyebrow">Prediction</p>
+          <h3 id="risk-band">Moderate Risk</h3>
+        </div>
+
+        <div class="score-circle" aria-live="polite">
+          <span id="risk-score">58%</span>
+        </div>
+
+        <div class="meter" aria-hidden="true">
+          <div id="meter-fill"></div>
+        </div>
+
+        <p id="risk-summary">Your profile suggests a moderate likelihood of cardiovascular risk based on key factors.</p>
+        <ul id="risk-factors"></ul>
+        <p class="disclaimer">This is a prototype demo for education and research only, not medical advice.</p>
+      </article>
+    </section>
+
+    <section class="chart-section card">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Clinical view</p>
+          <h3>Risk trend snapshot</h3>
+        </div>
+        <span class="pill">Monitoring</span>
+      </div>
+      <canvas id="riskChart" height="140"></canvas>
+    </section>
+
+    <section class="report-section card">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Report</p>
+          <h3>Generate patient summary</h3>
+        </div>
+      </div>
+      <p id="report-text">Create a downloadable summary report that includes inputs, risk score, and key factors.</p>
+      <button id="download-report">Download Report</button>
+    </section>
+
+    <section class="details-grid">
+      <article class="card clinical-card">
+        <h3>Why these metrics matter</h3>
+        <ul>
+          <li>Blood pressure and cholesterol are strong indicators of cardiovascular health.</li>
+          <li>Glucose and diabetes history help assess long-term heart risk.</li>
+          <li>Regular monitoring supports earlier intervention and better outcomes.</li>
+        </ul>
+      </article>
+
+      <article class="card clinical-card">
+        <h3>Recommended actions</h3>
+        <ul>
+          <li>Keep a balanced diet and stay physically active.</li>
+          <li>Schedule regular medical checkups.</li>
+          <li>Track symptoms and medication adherence weekly.</li>
+        </ul>
+      </article>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="theme.js?v=2"></script>
+  <script src="app.js?v=2"></script>
+</body>
+</html>
